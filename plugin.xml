@@ -24,7 +24,7 @@
     </js-module>
 
     <js-module name="ApiAIPromises" src="www/ApiAIPromises.js">
-        <clobbers target="cordova.ApiAIPlugin" />
+        <clobbers target="cordova.ApiAIPromises" />
     </js-module>
 
     <!-- ios -->
