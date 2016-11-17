@@ -20,15 +20,18 @@
     </js-module>
 
     <js-module name="ApiAIPlugin" src="www/ApiAIPlugin.js">
-        <clobbers target="window.ApiAIPlugin" />
+        <clobbers target="cordova.ApiAIPlugin" />
     </js-module>
 
     <js-module name="ApiAIPromises" src="www/ApiAIPromises.js">
-        <clobbers target="window.ApiAIPromises" />
+        <clobbers target="cordova.ApiAIPlugin" />
     </js-module>
 
+    <!-- ios -->
     <platform name="ios">
-        <config-file parent="/*" target="config.xml">
+        <plugins-plist key="ApiAIPlugin" string="ApiAIPlugin"></plugins-plist>
+
+        <config-file target="config.xml" parent="/*" >
             <feature name="ApiAIPlugin">
                 <param name="ios-package" value="ApiAIPlugin" />
             </feature>

@@ -27,114 +27,112 @@ var ApiAIPluginProto = function() {
 
 };
 
-ApiAIPluginProto.prototype = {
-    init: function(options, success, error) {
+ApiAIPluginProto.prototype.init = function(options, success, error) {
 
-        if (!options) {
-            throw new Error("options must not be null");
-        }
+    if (!options) {
+        throw new Error("options must not be null");
+    }
 
-        if (!options.clientAccessToken) {
-            throw new Error("clientAccessToken must not be empty");
-        }
+    if (!options.clientAccessToken) {
+        throw new Error("clientAccessToken must not be empty");
+    }
 
-        if (!options.baseURL){
-            options.baseURL = "https://api.api.ai/v1/";
-        }
+    if (!options.baseURL){
+        options.baseURL = "https://api.api.ai/v1/";
+    }
 
-        if (!options.version) {
-            options.version = "20150910";
-        }
+    if (!options.version) {
+        options.version = "20150910";
+    }
 
-        success = success || null;
-        error = error || null;
+    success = success || null;
+    error = error || null;
 
-        cordova.exec(
-             success, 
-             error,
-             "ApiAIPlugin",
-             "init",
-             [options]
-             );
-    },
+    cordova.exec(
+        success,
+        error,
+        "ApiAIPlugin",
+        "init",
+        [options]
+    );
+};
 
-    requestText: function(options, success, error) {
+ApiAIPluginProto.prototype.requestText = function(options, success, error) {
 
-        if (!options) {
-            throw new Error("options must not be null");
-        }
+    if (!options) {
+        throw new Error("options must not be null");
+    }
 
-        success = success || null;
-        error = error || null;
+    success = success || null;
+    error = error || null;
 
-        cordova.exec(success,
-                     error,
-                     "ApiAIPlugin",
-                     "requestText",
-                     [options]);
-    },
+    cordova.exec(success,
+        error,
+        "ApiAIPlugin",
+        "requestText",
+        [options]);
+};
 
-    requestVoice: function (options, success, error) {
-        
-        options = options || {};
-        success = success || null;
-        error = error || null;
+ApiAIPluginProto.prototype.requestVoice = function (options, success, error) {
 
-        cordova.exec(success,
-                     error,
-                     "ApiAIPlugin",
-                     "requestVoice",
-                     [options]);
-    },
+    options = options || {};
+    success = success || null;
+    error = error || null;
 
-    setListeningStartCallback: function (callback) {
-        cordova.exec(callback,
-                      null,
-                      "ApiAIPlugin",
-                      "listeningStartCallback",
-                      []);
-     },
+    cordova.exec(success,
+        error,
+        "ApiAIPlugin",
+        "requestVoice",
+        [options]);
+};
 
-     setListeningFinishCallback: function (callback) {
-         cordova.exec(callback,
-                       null,
-                       "ApiAIPlugin",
-                       "listeningFinishCallback",
-                       []);
-      },
 
-    setPartialResultsCallback: function (callback) {
-        cordova.exec(callback,
-            null,
-            "ApiAIPlugin",
-            "partialResultsCallback",
-            []);
-    },
+ApiAIPluginProto.prototype.setListeningStartCallback= function (callback) {
+    cordova.exec(callback,
+        null,
+        "ApiAIPlugin",
+        "listeningStartCallback",
+        []);
+};
 
-    levelMeterCallback: function (callback) {
-        cordova.exec(callback,
-                      null,
-                      "ApiAIPlugin",
-                      "levelMeterCallback",
-                      []);
-     },
+ApiAIPluginProto.prototype.setListeningFinishCallback= function (callback) {
+    cordova.exec(callback,
+        null,
+        "ApiAIPlugin",
+        "listeningFinishCallback",
+        []);
+};
 
-    cancelAllRequests: function () {
-        cordova.exec(null,
-                     null,
-                     "ApiAIPlugin",
-                     "cancelAllRequests",
-                     []);
-    },
-               
-    stopListening: function () {
-        cordova.exec(null,
-                     null,
-                     "ApiAIPlugin",
-                     "stopListening",
-                     []);
-   }
+ApiAIPluginProto.prototype.setPartialResultsCallback= function (callback) {
+    cordova.exec(callback,
+        null,
+        "ApiAIPlugin",
+        "partialResultsCallback",
+        []);
+};
 
+ApiAIPluginProto.prototype.levelMeterCallback= function (callback) {
+    cordova.exec(callback,
+        null,
+        "ApiAIPlugin",
+        "levelMeterCallback",
+        []);
+};
+
+ApiAIPluginProto.prototype.cancelAllRequests= function () {
+    cordova.exec(null,
+        null,
+        "ApiAIPlugin",
+        "cancelAllRequests",
+        []);
+};
+
+ApiAIPluginProto.prototype.stopListening= function () {
+    cordova.exec(null,
+        null,
+        "ApiAIPlugin",
+        "stopListening",
+        []);
 };
 
 
